@@ -8,18 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, X } from "lucide-react";
 
 // Import project images
-import recipeHero from "@/assets/project-recipe-hero.jpg";
-import recipeGallery1 from "@/assets/project-recipe-gallery-1.jpg";
-import recipeGallery2 from "@/assets/project-recipe-gallery-2.jpg";
-import eventHero from "@/assets/project-event-hero.jpg";
-import eventGallery1 from "@/assets/project-event-gallery-1.jpg";
-import eventGallery2 from "@/assets/project-event-gallery-2.jpg";
-import businessHero from "@/assets/project-business-hero.jpg";
-import businessGallery1 from "@/assets/project-business-gallery-1.jpg";
-import businessGallery2 from "@/assets/project-business-gallery-2.jpg";
-import gardenHero from "@/assets/project-garden-hero.jpg";
-import gardenGallery1 from "@/assets/project-garden-gallery-1.jpg";
-import gardenGallery2 from "@/assets/project-garden-gallery-2.jpg";
+import project1 from "@/assets/project-1.png";
+import project2 from "@/assets/project-2.png";
+import project3 from "@/assets/project-3.png";
 
 interface Project {
   id: string;
@@ -41,40 +32,40 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
-      id: "recipe-sharing",
-      title: "Community Recipe Sharing",
-      tagline: "Bringing people together through food",
-      description: "A warm, welcoming platform where neighbors share their favorite family recipes and cooking stories.",
-      fullDescription: "Community Recipe Sharing is more than just a recipe app—it's a platform built with love to bring people together through the universal language of food. Share your grandmother's secret sauce, discover your neighbor's famous casserole, or simply connect with fellow food enthusiasts in your community. With features like recipe collections, cooking tips, and community reviews, every meal becomes an opportunity to strengthen neighborhood bonds.",
-      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      id: "portfolio-site",
+      title: "Personal Portfolio Website",
+      tagline: "Your Friendly Neighbourhood Programmer",
+      description: "A modern, interactive portfolio to showcase my projects, skills, and experience as a developer.",
+  fullDescription: "This portfolio website is my digital home, designed to introduce myself as a developer and showcase my best work. It features a friendly, welcoming hero section, a summary of my skills, and a gallery of real-world projects. The site is fully responsive, visually engaging, and easy to navigate, making it simple for visitors to learn about my background, view my resume, and get in touch.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
       liveUrl: "#",
       githubUrl: "#",
-      featuredImage: recipeHero,
-      gallery: [recipeHero, recipeGallery1, recipeGallery2],
+      featuredImage: project1,
+      gallery: [project1],
     },
     {
-      id: "event-connector",
-      title: "Local Event Connector",
-      tagline: "Connect, discover, create memories",
-      description: "Helping communities discover and organize local events from book clubs to hiking groups.",
-      fullDescription: "Local Event Connector makes it effortless to discover what's happening in your neighborhood and meet like-minded people. Whether you're passionate about book clubs, hiking groups, or community workshops, our platform helps you find and organize events that matter to you. With smart notifications, RSVP management, and integrated maps, you'll never miss an opportunity to create lasting memories with your neighbors.",
-      technologies: ["TypeScript", "Express", "PostgreSQL", "React Native"],
+      id: "masjid-connect",
+      title: "Masjid Connect",
+      tagline: "Find Your Masjid, Stay Connected",
+      description: "A platform to discover masjids in South Africa, stay updated with events, and strengthen your community connection.",
+  fullDescription: "Masjid Connect is a community platform for Muslims in South Africa to find local masjids, check accurate prayer times, and stay updated with events. The homepage features a beautiful masjid image, quick access to explore masjids or join the community, and a real-time prayer times widget. The design is welcoming and easy to use for all ages, helping users strengthen their connection to their local masjid and community.",
+      technologies: ["React", "Node.js", "Google Maps API", "Tailwind CSS"],
       liveUrl: "#",
       githubUrl: "#",
-      featuredImage: eventHero,
-      gallery: [eventHero, eventGallery1, eventGallery2],
+      featuredImage: project2,
+      gallery: [project2],
     },
     {
-      id: "business-helper",
-      title: "Small Business Helper",
-      tagline: "Great tools for local businesses",
-      description: "A simple, friendly inventory management tool designed specifically for local small businesses.",
-      fullDescription: "Small Business Helper is designed with neighborhood shops in mind. We believe every local business deserves professional-grade tools without the enterprise complexity or cost. Our intuitive inventory management system helps you track stock, manage orders, and understand your business better with clear analytics. Spend less time on spreadsheets and more time serving your community.",
-      technologies: ["Python", "Flask", "SQLite", "Vue.js"],
+      id: "lost-and-found",
+      title: "Lost and Found Portal",
+      tagline: "Student Support & Item Recovery",
+      description: "A campus platform to report, search, and recover lost items, and access student support resources.",
+  fullDescription: "The Lost and Found Portal is a student-focused platform for reporting, searching, and recovering lost items on campus. The homepage highlights student support services and resources, with a prominent carousel for help contacts. The portal makes it easy to report lost or found items, browse listings, and access support, all in a safe and user-friendly environment.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
       liveUrl: "#",
       githubUrl: "#",
-      featuredImage: businessHero,
-      gallery: [businessHero, businessGallery1, businessGallery2],
+      featuredImage: project3,
+      gallery: [project3],
     }
   ];
 
@@ -191,16 +182,45 @@ const ProjectsSection = () => {
                 {/* Hero Video Walkthrough (Loom) */}
                 <motion.div
                   layoutId={`project-image-${selectedProject.id}`}
-                  className="relative h-[40vh] overflow-hidden rounded-lg border border-muted"
+                  className="relative h-[40vh] overflow-hidden rounded-lg border border-muted flex items-center justify-center bg-gray-100"
                 >
-                  {/* Replace the src below with your actual Loom video link for each project */}
-                  <iframe
-                    src="https://www.loom.com/embed/your-loom-video-id?autoplay=1"
-                    title="Project Walkthrough"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    style={{ width: '100%', height: '100%', border: 'none' }}
-                  />
+                  <video
+                    src={
+                      selectedProject.id === 'portfolio-site'
+                        ? '/assets/Portfolio.mp4'
+                        : selectedProject.id === 'masjid-connect'
+                        ? '/assets/Masjid connect.mp4'
+                        : '/assets/Lost N Found.mp4'
+                    }
+                    autoPlay
+                    muted
+                    loop
+                    controls
+                    preload="auto"
+                    className="w-full h-full object-cover"
+                    poster={selectedProject.featuredImage}
+                    onLoadedData={() => {
+                      console.log('Video loaded successfully');
+                    }}
+                    onError={(e) => {
+                      console.error('Video failed to load:', e);
+                      // Fallback: show the project image if video fails to load
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const fallback = target.parentElement?.querySelector('.video-fallback') as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                  {/* Fallback content if video doesn't load */}
+                  <div className="video-fallback absolute inset-0 flex items-center justify-center bg-gray-100" style={{ display: 'none' }}>
+                    <img
+                      src={selectedProject.featuredImage}
+                      alt={`${selectedProject.title} preview`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Content */}
@@ -220,12 +240,6 @@ const ProjectsSection = () => {
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 mb-8">
-                    <Button size="lg" className="flex-1" asChild>
-                      <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-5 h-5 mr-2" />
-                        View Live Preview
-                      </a>
-                    </Button>
                     <Button variant="outline" size="lg" className="flex-1" asChild>
                       <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="w-5 h-5 mr-2" />
