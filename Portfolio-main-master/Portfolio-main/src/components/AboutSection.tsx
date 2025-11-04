@@ -3,7 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Laptop, Users, Lightbulb, Coffee, Camera } from "lucide-react";
-import profileImage from "@/assets/profile-placeholder.jpg";
+import profileImage from "@/assets/Raees.jpeg";
+import NaturalTypingParagraphs from "./NaturalTypingParagraphs";
+import FlippingProfileCard from "./FlippingProfileCard";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -54,22 +56,21 @@ const AboutSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-12 items-center mb-16">
-          {/* Profile Image */}
+          {/* Profile Image - Flipping Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="lg:col-span-1 flex justify-center"
+            className="lg:col-span-1 flex justify-center items-center"
           >
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-hero rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="relative glass-card p-4 rounded-full">
-                <img
-                  src={profileImage}
+            <div className="relative">
+              <div className="absolute -inset-8 bg-gradient-hero rounded-full blur-2xl opacity-20"></div>
+              <div className="relative">
+                <FlippingProfileCard
+                  frontImage={profileImage}
+                  backImage="/assets/raees2.jpg"
                   alt="Your friendly neighborhood programmer"
-                  className="w-64 h-64 object-cover rounded-full shadow-warm"
                 />
-                <div className="absolute inset-0 rounded-full border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"></div>
               </div>
             </div>
           </motion.div>
@@ -85,26 +86,16 @@ const AboutSection = () => {
                 <Laptop className="w-8 h-8 text-primary mr-3" />
                 <h3 className="text-2xl font-semibold">My Story</h3>
               </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  What started as curiosity about "how websites work" turned into a passion for creating 
-                  digital experiences that make people's lives a little bit better. I've been coding for 
-                  2 years, and honestly, I still get excited about every new project.
-                  </p>
-
-                 <p> I'm  highly motivated and determined student with a strong capacity for problem-solving and innovative 
-                    thinking, possesses good communication skills, able to adapt to new environments with ease and embraces 
-                    challenges while contributing and collaborating with team members to complete objectives.
-                </p>
-                <p>
-                  When I'm not debugging code, you'll find me on the 
-                  football field, hiking trails or at the beach.
-                </p>
-                <p>
-                  My approach? Write clean code, ask thoughtful questions, and never forget that behind 
-                  every user interface is a human being trying to get something done.
-                </p>
-              </div>
+              <NaturalTypingParagraphs
+                paragraphs={[
+                  "What started as curiosity about \"how websites work\" turned into a passion for creating digital experiences that make people's lives a little bit better. I've been coding for 2 years, and honestly, I still get excited about every new project.",
+                  "I'm highly motivated and determined student with a strong capacity for problem-solving and innovative thinking, possesses good communication skills, able to adapt to new environments with ease and embraces challenges while contributing and collaborating with team members to complete objectives.",
+                  "When I'm not debugging code, you'll find me on the football field, hiking trails or at the beach.",
+                  "My approach? Write clean code, ask thoughtful questions, and never forget that behind every user interface is a human being trying to get something done."
+                ]}
+                className="text-muted-foreground leading-relaxed"
+                delay={0.5}
+              />
             </div>
           </motion.div>
 

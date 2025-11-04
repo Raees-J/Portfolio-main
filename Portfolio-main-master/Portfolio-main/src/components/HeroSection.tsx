@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Coffee, Code2, Heart } from "lucide-react";
+import TypewriterText from "./TypewriterText";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -32,11 +33,20 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            
-            <span className="gradient-text">Your Friendly
-            Nieghbourhood Programmer</span>           
-            
-            
+            <span className="gradient-text">
+              <TypewriterText
+                texts={[
+                  "Your Friendly Neighbourhood Programmer",
+                  "Building Amazing Web Experiences",
+                  "Solving Problems with Code",
+                  "Creating Digital Solutions"
+                ]}
+                delay={0.5}
+                typingSpeed={0.08}
+                deletingSpeed={0.05}
+                pauseDuration={2.5}
+              />
+            </span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
