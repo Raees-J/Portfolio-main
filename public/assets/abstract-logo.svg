@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abstract geometric logo design -->
+  <circle cx="100" cy="100" r="90" fill="#1E293B" opacity="0.9"/>
+  
+  <!-- Left chevrons in navy -->
+  <path d="M 60 70 L 40 100 L 60 130" stroke="#334155" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 80 70 L 60 100 L 80 130" stroke="#334155" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Right chevrons in coral/red -->
+  <path d="M 140 70 L 160 100 L 140 130" stroke="#EF4444" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 120 70 L 140 100 L 120 130" stroke="#EF4444" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Center accent line -->
+  <line x1="100" y1="60" x2="100" y2="140" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+</svg>
