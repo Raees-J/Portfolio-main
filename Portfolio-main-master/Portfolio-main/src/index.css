@@ -1,0 +1,189 @@
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll var(--animation-duration,40s) linear infinite;
+    animation-direction: var(--animation-direction,forwards);
+  }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Warm, friendly neighborhood programmer design system */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, friendly color palette */
+    --background: 35 20% 98%;
+    --foreground: 25 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Warm coral/orange primary */
+    --primary: 15 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 95% 75%;
+
+    /* Soft teal secondary */
+    --secondary: 175 50% 70%;
+    --secondary-foreground: 25 25% 15%;
+
+    /* Warm cream muted tones */
+    --muted: 35 30% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Golden accent */
+    --accent: 45 90% 70%;
+    --accent-foreground: 25 25% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 90%;
+    --input: 35 20% 95%;
+    --ring: 15 85% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(15 85% 65%) 0%, hsl(45 90% 70%) 50%, hsl(175 50% 70%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(35 25% 96%) 100%);
+    
+    /* Shadows */
+    --shadow-warm: 0 10px 40px -15px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
+    --shadow-soft: 0 4px 20px -8px hsl(25 25% 15% / 0.1);
+
+    /* Typography */
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 35 20% 95%;
+
+    --card: 25 25% 10%;
+    --card-foreground: 35 20% 95%;
+
+    --popover: 25 25% 10%;
+    --popover-foreground: 35 20% 95%;
+
+    --primary: 15 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 95% 75%;
+
+    --secondary: 175 40% 50%;
+    --secondary-foreground: 35 20% 95%;
+
+    --muted: 25 20% 15%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 45 80% 60%;
+    --accent-foreground: 25 25% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 15%;
+    --ring: 15 85% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(35 25% 96%) 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  code {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/80 border border-white/20;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .warm-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
